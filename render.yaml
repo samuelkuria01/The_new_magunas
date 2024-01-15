@@ -11,10 +11,8 @@ services:
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
-    envVars:
+ envVars:
       - key: DATABASE_URL
         value: "postgresql://kemet:4321@localhost/egypt"
-          name: mysite
-          property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
