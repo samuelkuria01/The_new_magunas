@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     @categories = Category.all
-    # render json: @categories, only: [:name ]
+    render json: @categories, only: [:name ]
 
   end
 
@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
-    # render json: @category, only: [:name ]
+    render json: @category, only: [:name ]
 
   end
 

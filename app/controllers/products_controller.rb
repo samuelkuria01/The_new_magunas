@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @products = @category.products
-    #  render json: @products, only: [:id, :title, :image, :price, :category_id]
+     render json: @products, only: [:id, :title, :image, :price, :category_id]
 
   end
 
@@ -27,19 +27,19 @@ class ProductsController < ApplicationController
       redirect_to root_path # or any other appropriate path
     end
 
-  #   render json: {
-  #   id: @product.id,
-  #   title: @product.title,
-  #   image: @product.image,
-  #   price: @product.price,
-  #   category_id: @product.category_id,
-  #   category: @category.as_json(only: [:id, :name]) # Include category information if needed
-  # }
+    render json: {
+    id: @product.id,
+    title: @product.title,
+    image: @product.image,
+    price: @product.price,
+    category_id: @product.category_id,
+    category: @category.as_json(only: [:id, :name]) # Include category information if needed
+  }
   end
   # GET /products/new
   def new
     @product=  Product.new
-    # render json: @products, only: [:id, :title, :image, :price, :category_id]
+    render json: @products, only: [:id, :title, :image, :price, :category_id]
 
   end
 
@@ -82,8 +82,7 @@ class ProductsController < ApplicationController
     @product.destroy
 
     redirect_to category_products_path(@category), notice: 'Product was successfully destroyed.'
-    end
-  
+  end
 
   private
 
