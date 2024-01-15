@@ -36,11 +36,16 @@ function Products() {
   return (
     <div>
     {productDetails && Object.keys(productDetails).length > 0 ? (
-      <div>
+      <div className='productcontainer3'>
+        <div className='sideimage'>
+        <img src={productDetails.image} alt='blodclat' />
+        </div>
+        <div>
         <h2>Product Details</h2>
         <p>{productDetails.title}</p>
         <p>{productDetails.price}</p>
-        <img src={productDetails.image} alt='blodclat' />
+         </div>
+        
       </div>
     ) : (
       <div>Loading...</div>

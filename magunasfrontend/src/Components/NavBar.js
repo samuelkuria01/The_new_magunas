@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
+import { useCart } from 'react-use-cart';
+
+
+
 function NavBar() {
    
-
-
+    const { totalItems} = useCart()
 
   return (
     <div className='Homecontainer'>
@@ -21,9 +24,13 @@ function NavBar() {
                <p></p>
             <button className='signcartbtn'>SignIn</button>
             </div>
-            <div className='cartimg'>
-            <i class="fa-solid fa-cart-shopping"></i>
-            </div>
+            <div className='carticon'>
+                        <Link to='cart'> 
+                          <i class="fa-solid fa-cart-shopping">
+                            <h6>{totalItems}</h6> 
+                              </i>
+                        </Link> 
+                  </div>
         </div>
         </div>
 
@@ -42,7 +49,7 @@ function NavBar() {
             </button>
 
             <button >
-               <Link to='category/bevaragesproducts'> Beverages</Link>
+               <Link to='categories/4'> Beverages</Link>
             </button>
 
             <button>
@@ -53,11 +60,14 @@ function NavBar() {
             </button>
 
             <button>
-               <Link to='category/babyproducts'> Baby Products</Link>
+               <Link to='categories/6'> Baby Products</Link>
             </button>
 
             <button>
                <Link to='category/cosmetics'>Beauty & Cosmetics</Link>
+            </button>
+            <button>
+               <Link to='categories/7'>Electricals</Link>
             </button>
 
             
